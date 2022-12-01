@@ -71,7 +71,7 @@ int main(){
                 fflush(stdin); // Limpando o buffer do teclado;
                 scanf("%d", &qtdPessoa);
 
-                system("cls");
+                system("cls"); // Limpando o terminal;
 
             } while (qtdPessoa < 10); // Quantidade de pessoas na sessão
         }
@@ -93,7 +93,7 @@ int main(){
                     fflush(stdin); // Limpando o buffer do teclado;
                     scanf("%s", &sexo);
 
-                    system("cls");
+                    system("cls"); // Limpando o terminal;
 
                 } while (strcmp(sexo, "M") != 0 && strcmp(sexo, "F") != 0); // Complemento da Validação se não for nenhuma opção
             }
@@ -110,7 +110,7 @@ int main(){
 
             system("cls"); // Limpando o terminal
 
-            printf("### SESSÃO %d ###\n(%dº pessoa)\n\n", j + 1, i + 1);
+            printf("### SESSÃO %d ###\n(%dº pessoa)\n\n", j + 1, i + 1); // Indica o numero da sessão e qual das pessoas presentes nela
             printf("Idade (Mín. 3 | Máx. 100): ");
             fflush(stdin); // Limpando o buffer do teclado;
             scanf("%d", &idade);
@@ -119,7 +119,7 @@ int main(){
             {
                 do
                 {
-                    printf("### SESSÃO %d ###\n(%dº pessoa)\n\n", j + 1, i + 1);
+                    printf("### SESSÃO %d ###\n(%dº pessoa)\n\n", j + 1, i + 1); // Indica o numero da sessão e qual das pessoas presentes nela
                     printf("#AVISO: Idade inválida.\nDigite novamente!");
                     printf("Idade (Mín. 3 | Máx. 100): ");
                     fflush(stdin); // Limpando o buffer do teclado;
@@ -130,28 +130,28 @@ int main(){
                 } while (idade < 3 || idade > 100); // Idade Limitada de 3 a 100 anos 
             }
 			
-			if(idade <= 13){ // Idade de 3 a 13 anos ela adiciona ao contador 1  se for criança
+			if(idade <= 13){ // Idade de 3 a 13 anos, ela adiciona ao contador +1 se for criança
 				crianca++;
 			}
 			
-			if(idade > 13 && idade <= 17){ // Idade de 13 a 17 anos ela adiciona ao contador 1  se for adolecente
+			if(idade > 13 && idade <= 17){ // Idade de 13 a 17 anos, ela adiciona ao contador +1  se for adolecente
 				adolescente++;
 			}
 			
-			if(idade > 18 && idade <= 64){ // Idade de 18 a 64 anos ela adiciona ao contador 1  se for adulto
+			if(idade > 18 && idade <= 64){ // Idade de 18 a 64 anos, ela adiciona ao contador +1  se for adulto
 				adulto++;
 			}
 			
-			if(idade > 64 && idade <= 100){ // Idade de 64 a 100 anos ela adiciona ao contador 1  se for idoso
+			if(idade > 64 && idade <= 100){ // Idade de 64 a 100 anos, ela adiciona ao contador +1  se for idoso
 				idoso++;
 			}
 			
-			if (strcmp(sexo, "M") == 0 && idade >=18) // Se o sexo da pessoa for maior que 18 adiciona ao contador 1 fazendo ela ser maio de idade no caso Masculino
+			if (strcmp(sexo, "F") == 0 && idade >=18) // Se o sexo da pessoa for feminino e a pessoa for maior de 18, adiciona ao contador +1 maiorIdadeFem
             {
                 maiorIdadeFem += 1;
             }
 
-            else if (strcmp(sexo, "F") == 0 && idade >=18) // Se o sexo da pessoa for maior que 18 adiciona ao contador 1 fazendo ela ser maio de idade no caso Feminino
+            else if (strcmp(sexo, "M") == 0 && idade >=18) // Se o sexo da pessoa for masculino e a pessoa for maior de 18, adiciona ao contador +1 maiorIdadeMasc
             {
                 maiorIdadeMasc += 1;
             }
@@ -159,7 +159,7 @@ int main(){
             system("cls"); // Limpando o terminal;
 
         telaIngresso:
-            printf("### SESSÃO %d ###\n(%dº pessoa)\n\n", j + 1, i + 1);
+            printf("### SESSÃO %d ###\n(%dº pessoa)\n\n", j + 1, i + 1); // Indica o numero da sessão e qual das pessoas presentes nela
             printf("Tipo de ingresso:\n\n-1. Inteira (R$ 50,00)\n-2. Meia (R$ 25,00)\n\nOpção: ");
             fflush(stdin);              // Limpando o buffer do teclado;
             scanf("%d", &tipoIngresso); // Recebe o valor do tipo de ingresso
@@ -180,13 +180,13 @@ int main(){
             }
              //Pergunta a forma de compra ao usuário 
 			 system("cls");  
-            printf("Forma de compra:\n\n1. Presencialmemte\n2 .Online\nDigite a opção desejada: ");
+            printf("Forma de compra:\n\n1. Presencialmente\n2. Online\nDigite a opção desejada: ");
             scanf("%s", &formaCompra[j]); // Forma de compra 
         
              //Faz o somatório
-            if(strcmp(formaCompra[j], "Presencialmente")==0){ // Somatorio da compra presencial assim adicionando 1 ao contador
+            if(strcmp(formaCompra[j], "Presencialmente")==0){ // Somatorio da compra presencial, assim adicionando +1 ao contador
             	presencial = presencial+1;
-			}else if(strcmp(formaCompra[j], "Online")==0){ // Somatorio da compra online assim adicionando 1 ao contador
+			}else if(strcmp(formaCompra[j], "Online")==0){ // Somatorio da compra online, assim adicionando +1 ao contador
 				online = online+1;
 			}
 			//Validação da forma de compra 
@@ -196,23 +196,23 @@ int main(){
 					system("cls");
 					printf("Opção inválida.\nForma de compra:\n\n1. Presencialmente\n2. Online\nDigite a opção desejada: "); // Opção de compra
 					scanf("%s", &formaCompra[j]);
-				}while(strcmp(formaCompra[j], "Presencialmente")!=0 && strcmp(formaCompra[j], "Online")!=0); // Validação de opção possiveis 
+				}while(strcmp(formaCompra[j], "Presencialmente")!=0 && strcmp(formaCompra[j], "Online")!=0); // Validação das opção possiveis 
 			}
 			
 
             system("cls"); // Limpando o terminal
         }
 	
-	printf("Sessão: %d\n", i);
+	printf("Sessão: %d\n", i); // Imprime o numero da Sessao
 	printf("Nome do filme: %s\n", nomeFilme); // Imprime o Nome do filme na tela do usuario 
-	printf("Espectadores:\n-Masculinos: %d\n-Femininos: %d\n", somaM, somaF);
-	printf("Quantidade de pessoas por classificação:\n-Crianças: %d\n-Adolescentes: %d\n-Adultos: %d\n-Idosos: %d\n", crianca, adolescente, adulto, idoso); // Imprime a classificação por idade das pessoas
-	printf("Pessoas maiores de idade:\n-Femininos: %d\n-Masculinos: %d\n", maiorIdadeFem, maiorIdadeMasc); // Imprime as pessoas maiores de idade
-	printf("Valor total arrecadado:\n-Meia-entrada: R$ %d\n-Inteira: R$ %d\n", somaMeia, somaInteira); // Imprime o total arrecadado dos inigressos
+	printf("Espectadores:\n-Masculinos: %d\n-Femininos: %d\n", somaM, somaF);  // Imprime o total de pessoas do sexo M e F
+	printf("Quantidade de pessoas por classificação:\n-Crianças: %d\n-Adolescentes: %d\n-Adultos: %d\n-Idosos: %d\n", crianca, adolescente, adulto, idoso); // Imprime a quantidade de pessoas pela classificação de idade
+	printf("Pessoas maiores de idade:\n-Femininos: %d\n-Masculinos: %d\n", maiorIdadeFem, maiorIdadeMasc); // Imprime as pessoas maiores de idade do sexo F e M
+	printf("Valor total arrecadado:\n-Meia-entrada: R$ %d\n-Inteira: R$ %d\n", somaMeia, somaInteira); // Imprime o total arrecadado dos ingressos
     printf("\nNúmero de pessoas que compraram o ingresso de forma presencial: %d", presencial); // Imprime se a pessoa comprou o ingresso de forma presencial
     printf("\nNúmero de pessoas que compraram o ingresso On-line: %d", online); // Imprime se a pessoa comprou o ingresso de forma online
 	
-	if(somaMeia > somaInteira){  //caso a quantidade me venda de ingressod de meia seja maior que a da interia aparecera uma mensagem caso ao contrio apresentara outro texto .
+	if(somaMeia > somaInteira){  //Imprime uma mensagem indicando se houveram mais vendas de meias-entradas ou inteiras.
 		printf("\nForam vendidas mais meia-entradas do que inteiras.\n");
 	}
 	else{
@@ -223,7 +223,7 @@ int main(){
 	scanf("%d", NULL);
 	
 
-	goto menu;
+	goto menu;  // Retorna ao menu do cinema
 	
 	return 0;
 }
