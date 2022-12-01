@@ -1,19 +1,18 @@
-// PROJETO FINAL: ALGORITMOS E PROGRAMAÇÃO
-// INTEGRANTES:
-// 1. João Pedro Araujo Sarinho Fonseca - UC22200347 - ADS
-// 2. Júlia Cerqueira Brito Rosa - UC22200243 - ADS
-// 3. Lucas Soares Garcia - UC22200062 - ADS
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
+#include <string.h>
 
-int main()
-{
-    setlocale(LC_ALL, "Portuguese"); // Setando os caracteres para português;
-
-    int i = 0, j = 0, opc, qtdSessao, qtdPessoa, idade[10], tipoIngresso, somaM = 0, somaF = 0; // Declarando as variáveis iniciais;
-
-menu:                                                             // Marcação de retorno do menu inicial;
+int main(){
+	
+	setlocale(LC_ALL, "Portuguese");
+	
+	int i=0, j=1, opc, qtdSessao, qtdPessoa, somaM = 0, somaF = 0, idade, crianca=0, adolescente=0, adulto=0, idoso=0, tipoIngresso, somaMeia=0, somaInteira=0;
+	int maiorIdadeFem = 0, maiorIdadeMasc = 0;
+	char nomeFilme[50], sexo[1];
+	
+	
+    menu:                                                      // Marcação de retorno do menu inicial;
     printf("Bem vindo ao Cinema! Escolha a opção desejada:\n\n"); // Imprime o menu inicial;
     printf("1. Iniciar análise\n2. Sair\n\nOpção: ");             // Imprime o menu inicial;
     scanf("%d", &opc);                                            // Recebe a opção desejada no menu inicial;
@@ -36,7 +35,7 @@ menu:                                                             // Marcação 
     scanf("%d", &qtdSessao); // Recebe a quantidade de sessões dos filmes;
 
     system("cls"); // Limpando o terminal;
-
+    
     if (qtdSessao != 2) // Validação da quantidade de sessões;
     {
         do
@@ -49,22 +48,13 @@ menu:                                                             // Marcação 
         } while (qtdSessao != 2);
     }
 
-    // Definindo os vetores com o tamanho de acordo com o número de sessões;
-    int totalInteira[qtdSessao], totalMeia[qtdSessao], sexoM[qtdSessao], sexoF[qtdSessao], sessao[qtdSessao];
-    char nomeFilme[qtdSessao][50];
-    char sexo[qtdSessao][1];
-
-    system("cls"); // Limpando o terminal
-
-    for (j = 0; j < qtdSessao; j++) //##### INICIANDO A ENTRADADA DE DADOS #####
-    {
-        printf("Nome do filme: ");
+	printf("Nome do filme: ");
         fflush(stdin);                  // Limpando o buffer do teclado;
-        fgets(nomeFilme[j], 50, stdin); // Utilizando a função fgets para receber o nome dos filmes;
+        fgets(nomeFilme, 50, stdin); // Utilizando a função fgets para receber o nome dos filmes;
 
         system("cls");
 
-        printf("### SESSÃO %d ###\n\n", j + 1);
+        printf("### SESSÃO %d ###\n\n", j);
         printf("Digite a quantidade de pessoas que assistiram ao filme (Mín. 10): ");
         fflush(stdin); // Limpando o buffer do teclado;
         scanf("%d", &qtdPessoa);
@@ -90,7 +80,7 @@ menu:                                                             // Marcação 
             printf("### SESSÃO %d ###\n(%dº pessoa)\n\n", j + 1, i + 1);
             printf("Sexo:\n\n-[M]asculino\n-[F]eminino\n\nOpção: ");
             fflush(stdin); // Limpando o buffer do teclado;
-            scanf("%c", &sexo);
+            scanf("%s", &sexo);
 
             if (strcmp(sexo, "M") != 0 && strcmp(sexo, "F") != 0)
             {
@@ -100,7 +90,7 @@ menu:                                                             // Marcação 
                     printf("#AVISO: Sexo inválido.\nDigite novamente!");
                     printf("Sexo:\n\n-[M]asculino\n-[F]eminino\n\nOpção: ");
                     fflush(stdin); // Limpando o buffer do teclado;
-                    scanf("%c", &sexo);
+                    scanf("%s", &sexo);
 
                     system("cls");
 
@@ -110,13 +100,11 @@ menu:                                                             // Marcação 
             if (strcmp(sexo, "M") == 0)
             {
                 somaM += 1;
-                sexoM[j] = somaM;
             }
 
             else if (strcmp(sexo, "F") == 0)
             {
                 somaF += 1;
-                sexoF[j] = somaF;
             }
 
             system("cls"); // Limpando o terminal
@@ -124,9 +112,9 @@ menu:                                                             // Marcação 
             printf("### SESSÃO %d ###\n(%dº pessoa)\n\n", j + 1, i + 1);
             printf("Idade (Mín. 3 | Máx. 100): ");
             fflush(stdin); // Limpando o buffer do teclado;
-            scanf("%d", &idade[i]);
+            scanf("%d", &idade);
 
-            if (idade[i] < 3 || idade[i] > 100)
+            if (idade < 3 || idade > 100)
             {
                 do
                 {
@@ -134,13 +122,39 @@ menu:                                                             // Marcação 
                     printf("#AVISO: Idade inválida.\nDigite novamente!");
                     printf("Idade (Mín. 3 | Máx. 100): ");
                     fflush(stdin); // Limpando o buffer do teclado;
-                    scanf("%d", &idade[i]);
+                    scanf("%d", &idade);
 
                     system("cls"); // Limpando o terminal;
 
-                } while (idade[i] < 3 || idade[i] > 100);
+                } while (idade < 3 || idade > 100);
+            }
+			
+			if(idade <= 13){
+				crianca++;
+			}
+			
+			if(idade > 13 && idade <= 17){
+				adolescente++;
+			}
+			
+			if(idade > 18 && idade <= 64){
+				adulto++;
+			}
+			
+			if(idade > 64 && idade <= 100){
+				idoso++;
+			}
+			
+			if (strcmp(sexo, "M") == 0 && idade >=18)
+            {
+                maiorIdadeFem += 1;
             }
 
+            else if (strcmp(sexo, "F") == 0 && idade >=18)
+            {
+                maiorIdadeMasc += 1;
+            }
+			
             system("cls"); // Limpando o terminal;
 
         telaIngresso:
@@ -148,14 +162,14 @@ menu:                                                             // Marcação 
             printf("Tipo de ingresso:\n\n-1. Inteira (R$ 50,00)\n-2. Meia (R$ 25,00)\n\nOpção: ");
             fflush(stdin);              // Limpando o buffer do teclado;
             scanf("%d", &tipoIngresso); // Recebe o valor do tipo de ingresso
-
+			
             if (tipoIngresso == 1) // Caso o ingresso seja tipo 1 (Inteira)
             {
-                totalInteira[j] = 25; // Adicionando valor na entrada inteira;
+            	somaInteira +=25; // Adicionando valor na entrada inteira;
             }
             else if (tipoIngresso == 2) // Caso o ingresso seja tipo 2 (Meia)
             {
-                totalMeia[j] = 50; // Adicionando valor na entrada meia;
+            	somaMeia += 50; // Adicionando valor na entrada meia;
             }
             else
             {
@@ -166,16 +180,37 @@ menu:                                                             // Marcação 
 
             system("cls"); // Limpando o terminal
         }
-        somaM = 0; // Zerando o valor do contador da quantidade de pessoas do sexo masculino
-        somaF = 0; // Zerando o valor do contador da quantidade de pessoas do sexo feminino
-    }
-
-    for (j = 0; j < qtdSessao; j++)
-    {                                                 //##### INICIANDO A SAÍDA DE DADOS #####
-        printf("\n\n### SESSÃO %d ###\n\n", j + 1);   // Imprimindo a sessão correspondente
-        printf("-Nome do filme: %s\n", nomeFilme[j]); // Imprimindo nome do filme
-        printf("-Feminino: %d\n  -Masculino: %d\n", sexoF[j], sexoM[j]);
-    } // Imprimindo a quantidade total de pessoas Masculinas e Femininas que estavam presentes na sessão.
-
-    return 0;
+	
+	printf("Sessão: %d\n", i);
+	printf("Nome do filme: %s\n", nomeFilme);
+	printf("Espectadores:\n-Masculinos: %d\n-Femininos: %d\n", somaM, somaF);
+	printf("Quantidade de pessoas por classificação:\n-Crianças: %d\n-Adolescentes: %d\n-Adultos: %d\n-Idosos: %d\n", crianca, adolescente, adulto, idoso);
+	printf("Pessoas maiores de idade:\n-Femininos: %d\n-Masculinos: %d\n", maiorIdadeFem, maiorIdadeMasc);
+	printf("Valor total arrecadado:\n-Meia-entrada: R$ %d\n-Inteira: R$ %d\n", somaMeia, somaInteira);
+	
+	if(somaMeia > somaInteira){
+		printf("Foram vendidas mais meia-entradas do que inteiras.\n");
+	}
+	else{
+		printf("Foram vendidas mais inteiras do que meias.\n");
+	}
+	
+	printf("Digite qualquer tecla para continuar: ");
+	scanf("%d", NULL);
+	
+	i += 1;
+	somaM = 0;
+	somaF = 0;
+	crianca = 0;
+	adolescente = 0;
+	adulto = 0;
+	idoso = 0;
+	somaMeia = 0;
+	somaInteira = 0;
+	maiorIdadeFem =0;
+	maiorIdadeMasc =0;
+	
+	goto menu;
+	
+	return 0;
 }
