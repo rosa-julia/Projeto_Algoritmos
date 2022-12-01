@@ -134,7 +134,7 @@ int main(){
 				crianca++;
 			}
 			
-			if(idade > 13 && idade <= 17){ // Idade de 13 a 17 anos, ela adiciona ao contador +1  se for adolecente
+			if(idade > 13 && idade <= 17){ // Idade de 13 a 17 anos, ela adiciona ao contador +1  se for adolescente
 				adolescente++;
 			}
 			
@@ -166,11 +166,11 @@ int main(){
 			
             if (tipoIngresso == 1) // Caso o ingresso seja tipo 1 (Inteira)
             {
-            	somaInteira +=25; // Adicionando valor na entrada inteira;
+            	somaInteira +=50; // Adicionando valor na entrada inteira;
             }
             else if (tipoIngresso == 2) // Caso o ingresso seja tipo 2 (Meia)
             {
-            	somaMeia += 50; // Adicionando valor na entrada meia;
+            	somaMeia += 25; // Adicionando valor na entrada meia;
             }
             else
             {
