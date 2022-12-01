@@ -15,6 +15,7 @@ int main()
 
     int i = 0, j = 0, opc, qtdSessao, qtdPessoa, idade[10], tipoIngresso, somaM = 0, somaF = 0; // Declarando as variáveis iniciais;
     int crianca = 0, adolescente = 0, adulto = 0, idoso = 0, sobeMasculino = 0, sobeFeminino = 0;
+    int presencialmente=0, online=0;
 
 menu:                                                             // Marcação de retorno do menu inicial;
     printf("Bem vindo ao Cinema! Escolha a opção desejada:\n\n"); // Imprime o menu inicial;
@@ -56,6 +57,7 @@ menu:                                                             // Marcação 
     int totalInteira[100], totalMeia[100], sexoM[100], sexoF[100], sessao[100];
     char nomeFilme[100][50];
     char sexo[50][1];
+    char formaCompra[50][100];
 
     system("cls"); // Limpando o terminal
 
@@ -73,7 +75,7 @@ menu:                                                             // Marcação 
         scanf("%d", &qtdPessoa);
         system("cls");
 
-        if (qtdPessoa < 10) // Validação da quantidade de pessoas;
+        if (qtdPessoa < 2) // Validação da quantidade de pessoas;
         {
             do
             {
@@ -85,7 +87,7 @@ menu:                                                             // Marcação 
 
                 system("cls");
 
-            } while (qtdPessoa < 10);
+            } while (qtdPessoa < 2);
         }
 
         for (i = 0; i < qtdPessoa; i++)
@@ -184,6 +186,17 @@ menu:                                                             // Marcação 
                 printf("#AVISO: Digite uma opção válida!\n");
                 goto telaIngresso; // Retorna à marcação de tela do tipo de ingresso
             }
+             //Pergunta a forma de compra ao usuário   
+            printf("Forma de compra:\n\n1. Presencialmemte\n2.Online\nDigite a opção desejada: ");
+            scanf("%s", &formaCompra[j]);
+        
+             //Faz o somatório
+            if(strcmp(formaCompra[j], "Presencialmemte")==0){
+            	presencialmente++;
+			}else if(strcmp(formaCompra[j], "Online")==0){
+				online++;
+			}
+            
 
             system("cls"); // Limpando o terminal
         }
