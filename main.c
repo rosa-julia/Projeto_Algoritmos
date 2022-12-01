@@ -172,11 +172,11 @@ menu:                                                             // Marcação 
 
             if (tipoIngresso == 1) // Caso o ingresso seja tipo 1 (Inteira)
             {
-                totalInteira[j] = 25; // Adicionando valor na entrada inteira;
+                totalInteira[j] = totalInteira+25; // Adicionando valor na entrada inteira;
             }
             else if (tipoIngresso == 2) // Caso o ingresso seja tipo 2 (Meia)
             {
-                totalMeia[j] = 50; // Adicionando valor na entrada meia;
+                totalMeia[j] = totalMeia[j]+50; // Adicionando valor na entrada meia;
             }
             else
             {
