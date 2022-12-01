@@ -73,7 +73,7 @@ menu:                                                             // Marcação 
         scanf("%d", &qtdPessoa);
         system("cls");
 
-        if (qtdPessoa < 2) // Validação da quantidade de pessoas;
+        if (qtdPessoa < 10) // Validação da quantidade de pessoas;
         {
             do
             {
@@ -85,7 +85,7 @@ menu:                                                             // Marcação 
 
                 system("cls");
 
-            } while (qtdPessoa < 2);
+            } while (qtdPessoa < 10);
         }
 
         for (i = 0; i < qtdPessoa; i++)
@@ -172,11 +172,11 @@ menu:                                                             // Marcação 
 
             if (tipoIngresso == 1) // Caso o ingresso seja tipo 1 (Inteira)
             {
-                totalInteira[j] = totalInteira+25; // Adicionando valor na entrada inteira;
+                totalInteira[j] = totalInteira+50; // Adicionando valor na entrada inteira;
             }
             else if (tipoIngresso == 2) // Caso o ingresso seja tipo 2 (Meia)
             {
-                totalMeia[j] = totalMeia[j]+50; // Adicionando valor na entrada meia;
+                totalMeia[j] = totalMeia[j]+25; // Adicionando valor na entrada meia;
             }
             else
             {
