@@ -6,7 +6,7 @@
 int main(){
 	
 	setlocale(LC_ALL, "Portuguese");
-	
+	// Variaveis
 	int i=0, j=1, opc, qtdSessao, qtdPessoa, somaM = 0, somaF = 0, idade, crianca=0, adolescente=0, adulto=0, idoso=0, tipoIngresso, somaMeia=0, somaInteira=0;
 	int maiorIdadeFem = 0, maiorIdadeMasc = 0;
 	char nomeFilme[50], sexo[1], formaCompra[50][100];
