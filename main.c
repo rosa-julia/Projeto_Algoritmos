@@ -6,12 +6,15 @@
 
 #include <stdio.h>
 #include <locale.h>
+#include <stdlib.h>
+#include <string.h>
 
 int main()
 {
     setlocale(LC_ALL, "Portuguese"); // Setando os caracteres para português;
 
     int i = 0, j = 0, opc, qtdSessao, qtdPessoa, idade[10], tipoIngresso, somaM = 0, somaF = 0; // Declarando as variáveis iniciais;
+    int crianca = 0, adolescente = 0, adulto = 0, idoso = 0, sobeMasculino = 0, sobeFeminino = 0;
 
 menu:                                                             // Marcação de retorno do menu inicial;
     printf("Bem vindo ao Cinema! Escolha a opção desejada:\n\n"); // Imprime o menu inicial;
@@ -140,8 +143,33 @@ menu:                                                             // Marcação 
 
                 } while (idade[i] < 3 || idade[i] > 100);
             }
+            if (idade[j] > 18 && strcmp(sexoF[j], "[F]eminino") == 0)  
+			{
+		  		sobeFeminino++;
+			}
+	      	else if (idade[j] > 18 && strcmp(sexoM[j], "[M]asculino") == 0)
+				{
+		  		sobeMasculino++;
+				}
 
-            system("cls"); // Limpando o terminal;
+	      		if (idade[j] >= 3 && idade[j] <= 13)
+				{
+		 			crianca++;
+				}
+				else if (idade[j] >= 14 && idade[j] <= 17)
+				{
+		  			adolescente++;
+				}
+	      		else if (idade[j] >= 18 && idade[j] <= 64)
+				{
+		 			adulto++;
+				}
+	     		 else if (idade[j] >= 65 && idade[j] <= 100)
+				{
+		 			idoso++;
+				}
+                system("cls"); // Limpando o terminal;
+                
 
         telaIngresso:
             printf("### SESSÃO %d ###\n(%dº pessoa)\n\n", j + 1, i + 1);
