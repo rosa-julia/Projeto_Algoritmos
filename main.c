@@ -53,9 +53,9 @@ menu:                                                             // Marcação 
     }
 
     // Definindo os vetores com o tamanho de acordo com o número de sessões;
-    int totalInteira[qtdSessao], totalMeia[qtdSessao], sexoM[qtdSessao], sexoF[qtdSessao], sessao[qtdSessao];
-    char nomeFilme[qtdSessao][50];
-    char sexo[qtdSessao][1];
+    int totalInteira[100], totalMeia[100], sexoM[100], sexoF[100], sessao[100];
+    char nomeFilme[100][50];
+    char sexo[50][1];
 
     system("cls"); // Limpando o terminal
 
@@ -143,29 +143,22 @@ menu:                                                             // Marcação 
 
                 } while (idade[i] < 3 || idade[i] > 100);
             }
-            if (idade[j] > 18 && strcmp(sexoF[j], "[F]eminino") == 0)  
-			{
+            if (idade[j] > 18 && (sexoF[j], "[F]eminino") == 0)  {
 		  		sobeFeminino++;
 			}
-	      	else if (idade[j] > 18 && strcmp(sexoM[j], "[M]asculino") == 0)
-				{
+	      	else if (idade[j] > 18 && (sexoM[j], "[M]asculino") == 0){
 		  		sobeMasculino++;
 				}
-
-	      		if (idade[j] >= 3 && idade[j] <= 13)
-				{
+            if (idade[j] >= 3 && idade[j] <= 13){
 		 			crianca++;
 				}
-				else if (idade[j] >= 14 && idade[j] <= 17)
-				{
+			else if (idade[j] >= 14 && idade[j] <= 17){
 		  			adolescente++;
 				}
-	      		else if (idade[j] >= 18 && idade[j] <= 64)
-				{
+	      	else if (idade[j] >= 18 && idade[j] <= 64){
 		 			adulto++;
 				}
-	     		 else if (idade[j] >= 65 && idade[j] <= 100)
-				{
+	     	else if (idade[j] >= 65 && idade[j] <= 100){
 		 			idoso++;
 				}
                 system("cls"); // Limpando o terminal;
