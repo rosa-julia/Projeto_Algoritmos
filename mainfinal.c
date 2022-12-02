@@ -1,3 +1,8 @@
+//Grupo 9
+//João Pedro Araújo Sarinho Fonseca - UC22200347 - Curso: ADS
+//Júlia Cerqueira Brito Rosa - UC22200243 - Curso: ADS
+//Lucas Soares Garcia - UC22200062 - Curso: ADS
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
