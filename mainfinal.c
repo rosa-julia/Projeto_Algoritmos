@@ -10,7 +10,7 @@ int main()
     // Variaveis
     int i = 0, j = 1, k = 0, opc, qtdSessao, qtdPessoa, somaM = 0, somaF = 0, idade, crianca = 0, adolescente = 0, adulto = 0, idoso = 0, tipoIngresso, somaMeia = 0, somaInteira = 0;
     int maiorIdadeFem = 0, maiorIdadeMasc = 0;
-    char nomeFilme[50], sexo[1], formaCompra[50][100];
+    char nomeFilme[50], sexo[1], formaCompra[50];
     int presencial = 0, online = 0;
 
 menu:                                                             // Marcação de retorno do menu inicial;
@@ -63,7 +63,7 @@ menu:                                                             // Marcação 
         scanf("%d", &qtdPessoa);
         system("cls");
 
-        if (qtdPessoa < 2) // Validação da quantidade de pessoas;
+        if (qtdPessoa < 10) // Validação da quantidade de pessoas;
         {
             do
             {
@@ -75,7 +75,7 @@ menu:                                                             // Marcação 
 
                 system("cls"); // Limpando o terminal;
 
-            } while (qtdPessoa < 2); // Quantidade de pessoas na sessão
+            } while (qtdPessoa < 10); // Quantidade de pessoas na sessão
         }
 
         for (i = 0; i < qtdPessoa; i++) // For das sessões
